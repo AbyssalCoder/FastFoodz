@@ -28,7 +28,9 @@ class YelpService {
 
             console.log(`🔍 Fetching real restaurants from OpenStreetMap...`);
 
-            // Use backend proxy for OpenStreetMap data
+            // IMPORTANT: For GitHub Pages deployment, you need to deploy the backend separately
+            // Options: Railway, Render, Heroku, or Vercel
+            // Then update this URL to your deployed backend
             const backendUrl = `http://localhost:3000/api/restaurants?lat=${latitude}&lng=${longitude}&radius=${radius}&limit=${limit}`;
 
             const response = await fetch(backendUrl);
@@ -52,7 +54,13 @@ class YelpService {
 
         } catch (error) {
             console.error('❌ Error fetching restaurants:', error);
-            throw new Error(`Failed to load restaurants: ${error.message}. Please check your internet connection.`);
+
+            // Show user-friendly error message
+            if (error.message.includes('localhost') || error.message.includes('Failed to fetch')) {
+                alert('⚠️ Backend server not available!\n\nThe restaurant data server needs to be deployed separately.\n\nFor now, this demo works best on localhost.\n\nTo deploy:\n1. Deploy server.js to Railway/Render/Heroku\n2. Update the backendUrl in yelp-service.js\n\nSee README.md for deployment instructions.');
+            }
+
+            throw new Error(`Failed to load restaurants: ${error.message}`);
         }
     }
 
