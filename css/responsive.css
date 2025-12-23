@@ -1,0 +1,143 @@
+/* FastFoodz - Responsive Styles */
+
+/* ============================================
+   MOBILE FIRST - BASE STYLES ARE FOR MOBILE
+   ============================================ */
+
+/* Tablet Styles (768px and up) */
+@media (min-width: 768px) {
+    .navbar-search {
+        display: block;
+    }
+
+    .restaurant-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .modal {
+        max-width: 600px;
+    }
+}
+
+/* Desktop Styles (1024px and up) */
+@media (min-width: 1024px) {
+    .restaurant-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .food-item-card {
+        padding: var(--spacing-lg);
+    }
+}
+
+/* Large Desktop Styles (1280px and up) */
+@media (min-width: 1280px) {
+    .restaurant-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Mobile Specific Styles (max-width: 767px) */
+@media (max-width: 767px) {
+    .navbar-search {
+        display: none;
+    }
+
+    .navbar-logo span {
+        display: none;
+    }
+
+    .btn {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.875rem;
+    }
+
+    .cart-sidebar {
+        max-width: 100%;
+    }
+
+    .restaurant-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .food-item-card {
+        flex-direction: column;
+    }
+
+    .food-item-image-wrapper {
+        width: 100%;
+        height: 180px;
+    }
+
+    .filters-bar {
+        padding: var(--spacing-md) 0;
+    }
+
+    .toast-container {
+        right: var(--spacing-sm);
+        left: var(--spacing-sm);
+    }
+
+    .toast {
+        min-width: auto;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .container {
+        padding: 0 var(--spacing-md);
+    }
+}
+
+/* Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+    .navbar-actions {
+        gap: var(--spacing-sm);
+    }
+
+    .navbar-icon-btn {
+        width: 36px;
+        height: 36px;
+    }
+
+    .user-avatar {
+        width: 36px;
+        height: 36px;
+    }
+
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+        padding: var(--spacing-lg);
+    }
+}
+
+/* Landscape Mobile */
+@media (max-width: 767px) and (orientation: landscape) {
+    .modal {
+        max-height: 80vh;
+    }
+}
+
+/* Print Styles */
+@media print {
+
+    .navbar,
+    .cart-sidebar,
+    .filters-bar,
+    .toast-container {
+        display: none;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+}
